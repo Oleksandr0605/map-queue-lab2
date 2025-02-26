@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hazelcast xsi:schemaLocation="http://www.hazelcast.com/schema/config
+  http://www.hazelcast.com/schema/config/hazelcast-config-5.3.xsd"
+           xmlns="http://www.hazelcast.com/schema/config"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <queue name="default">
+        <max-size>10</max-size>
+        <backup-count>1</backup-count>
+        <async-backup-count>0</async-backup-count>
+        <empty-queue-ttl>-1</empty-queue-ttl>
+        <statistics-enabled>true</statistics-enabled>
+        <queue-store>
+            <class-name>com.hazelcast.QueueStoreImpl</class-name>
+            <properties>
+                <property name="binary">false</property>
+                <property name="memory-limit">10000</property>
+                <property name="bulk-load">500</property>
+            </properties>
+        </queue-store>
+        <split-brain-protection-ref>splitbrainprotection-name</split-brain-protection-ref>
+    </queue>
+
+    <management-center scripting-enabled="false" console-enabled="false" data-access-enabled="true">
+        <trusted-interfaces>
+            <interface>10.10.1.*</interface>
+            <interface>10.10.2.*</interface>
+            <interface>127.0.0.1</interface>
+        </trusted-interfaces>
+    </management-center>
+
+    <network>
+        <join>
+            <multicast enabled="false"/>
+            <tcp-ip enabled="true">
+                <member>127.0.0.1</member>
+            </tcp-ip>
+        </join>
+    </network>
+</hazelcast>
