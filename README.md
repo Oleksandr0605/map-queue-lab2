@@ -1,5 +1,6 @@
 # Lab2 Hazelcast
 ### Ivaniuk Oleksandr
+### Git: https://github.com/Oleksandr0605/map-queue-lab2.git
 
 ## 1. Distributed Map
 I have such structure:  
